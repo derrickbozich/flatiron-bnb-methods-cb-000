@@ -9,6 +9,13 @@ class Reservation < ActiveRecord::Base
   validates :checkout, presence: true
   validate :host_is_not_guest
 
+  validate :available
+
+  def available
+    binding.pry
+    listing
+  end
+
 
   def duration
     self.checkout - self.checkin
