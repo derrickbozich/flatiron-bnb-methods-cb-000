@@ -29,7 +29,7 @@ class Reservation < ActiveRecord::Base
     if guest_id == listing.host_id
      errors.add(:guest_id, "You can't book your own apartment.")
    end
-    
+
 
   end
 
