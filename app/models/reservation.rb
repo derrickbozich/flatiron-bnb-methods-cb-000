@@ -13,7 +13,24 @@ class Reservation < ActiveRecord::Base
 
   def available
     binding.pry
-    listing
+    start_date = DateTime.parse(start_date).to_date
+    end_date = DateTime.parse(end_date).to_date
+
+    open = false
+    conflicts = []
+
+    listing.reservations.each do |existing_reservation|
+      if ((checkin <= existing_reservation.checkout)  &&  (checkout >= existing_reservation.checkin))
+        conflicts << existing_reservation
+      end
+    end
+
+    if conflicts.empty?
+      open = true
+    end
+
+    end
+    open
   end
 
 
