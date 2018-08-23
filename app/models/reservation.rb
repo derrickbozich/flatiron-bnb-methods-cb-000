@@ -13,7 +13,6 @@ class Reservation < ActiveRecord::Base
 
   def available
     binding.pry
-    
 
     open = false
     conflicts = []
@@ -27,8 +26,7 @@ class Reservation < ActiveRecord::Base
     if conflicts.empty?
       open = true
     end
-
-    end
+    
     open
   end
 
