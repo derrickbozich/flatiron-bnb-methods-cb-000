@@ -19,7 +19,7 @@ class Reservation < ActiveRecord::Base
   end
 
   def host_is_not_guest
-    guest.id
+    guest.id != listing.host.id
     binding.pry
   end
 
