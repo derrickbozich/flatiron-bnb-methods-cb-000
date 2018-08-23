@@ -13,8 +13,7 @@ class Reservation < ActiveRecord::Base
 
   def available
     binding.pry
-    start_date = DateTime.parse(start_date).to_date
-    end_date = DateTime.parse(end_date).to_date
+    
 
     open = false
     conflicts = []
