@@ -19,7 +19,10 @@ class Reservation < ActiveRecord::Base
   end
 
   def host_is_not_guest
-    guest.id != listing.host.id
+    if guest_id == listing.host_id
+     errors.add(:guest_id, "You can't book your own apartment.")
+   end
+    
 
   end
 
