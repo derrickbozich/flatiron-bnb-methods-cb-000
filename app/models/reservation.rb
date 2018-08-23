@@ -12,7 +12,7 @@ class Reservation < ActiveRecord::Base
   validate :available
 
   def available
-    binding.pry
+
 
     open = false
     conflicts = []
@@ -26,7 +26,9 @@ class Reservation < ActiveRecord::Base
     if conflicts.empty?
       open = true
     end
-    
+
+    binding.pry
+
     open
   end
 
